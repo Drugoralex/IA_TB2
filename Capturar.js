@@ -1,14 +1,14 @@
 $(document).ready(()=>{
-    $('#Enviar').click(()=>{
+    $('#Enviar').click(async ()=>{
     	var lis = document.getElementById("div2").getElementsByTagName("li");
    		var Dinero = document.getElementById("Dinero");
    		var Procesador = document.getElementById("Procesador");
    		var Tarjeta = document.getElementById("Tarjeta");
    		var Ram = document.getElementById("Ram");
 
-    	for (i = 0;	i < lis.length ; i++) {
+    	/*for (i = 0;	i < lis.length ; i++) {
     		console.log(lis[i].value);
-    	}
+		}*/
     	var auxDinero = Dinero.options[Dinero.selectedIndex].value;
     	var auxProcesador = Procesador.options[Procesador.selectedIndex].value;
     	var auxTarjeta = Tarjeta.options[Tarjeta.selectedIndex].value;
@@ -27,7 +27,7 @@ $(document).ready(()=>{
 
 		console.log(data);
 
-		fetch('http://localhost:5000/logica', {
+		let res = await fetch('http://localhost:5000/logica', {
 			method: 'POST',
 			body: JSON.stringify(data),
 			headers: {
@@ -35,9 +35,8 @@ $(document).ready(()=>{
 				"Access-Control-Request-Method": "POST",
 				"Access-Control-Request-Headers": "Content-Type"
 			}
-		})
-		.then(response => response.json())
-		.then(data => console.log(data))
-		.catch(error => console.log(error));
+		});
+
+		console.log(await res.json());
     });
 });
