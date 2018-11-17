@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello_world():
     if request.method == 'POST':
         body = request.get_json(force=True)
-        print("\n" + body + "\n")
+        print(body)
         juegos = body["lista_juegos"]
         dinero = body["dinero"]
         data = {
