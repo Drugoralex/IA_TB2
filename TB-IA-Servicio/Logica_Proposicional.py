@@ -21,7 +21,21 @@ class Dinero(Fact):
 ListaJuego =['Juego1','Juego2','Juego3','Juego4','Juego5']
 ListaDinero =['Poco','Normal','Mucho']
      
-
+def ObtenerElMayor(x):
+	mayor = 0
+	for valor in x:
+		if mayor < valor:
+			mayor = valor
+	if mayor == 7000:
+		return 'Juego1'
+	if mayor == 3000:
+		return 'Juego2'
+	if mayor == 7500:
+		return 'Juego3'
+	if mayor == 4500:
+		return 'Juego4'
+	if mayor == 6000:
+		return 'Juego5'
 
 # In[102]:
 
@@ -73,9 +87,10 @@ class ConjuntoPCs(KnowledgeEngine):
 
 
 def LogicaProposicional(x,y):
+	OPJuego = ObtenerElMayor(x)
     engine = ConjuntoPCs()
     engine.reset()
-    engine.declare(Juego(VJuego = x))
+    engine.declare(Juego(VJuego = OPJuego))
     engine.declare(Dinero(VDinero = y))
     engine.run()
     return engine.ReturnLista()
