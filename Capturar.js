@@ -7,24 +7,37 @@ $(document).ready(()=>{
    		var Ram = document.getElementById("Ram");
 
     	for (i = 0;	i < lis.length ; i++) {
-    		console.log(lis[i].id);
+    		console.log(lis[i].value);
     	}
     	var auxDinero = Dinero.options[Dinero.selectedIndex].value;
     	var auxProcesador = Procesador.options[Procesador.selectedIndex].value;
     	var auxTarjeta = Tarjeta.options[Tarjeta.selectedIndex].value;
     	var auxRam = Ram.options[Ram.selectedIndex].value;
-    	
-		fetch('http://localhost:5000/bayesian/re', { 
+		
+		let data = {
+			lista_juegos: function() {
+				let array = [];
+				for(let i = 0;i<lis.length;i++){
+					array.push(lis[i].value);
+				}
+				return array;
+			}(),
+			dinero: auxDinero
+		};
+
+		console.log(data);
+
+		fetch('http://localhost:5000/logica', {
+			method: 'POST',
+			body: JSON.stringify(data),
 			headers: {
 				"Origin": "http://localhost:5000",
-				"Access-Control-Request-Method": "GET",
-				"Access-Control-Request-Headers": "X-Custom-Header"
+				"Access-Control-Request-Method": "POST",
+				"Access-Control-Request-Headers": "Content-Type"
 			}
 		})
 		.then(response => response.json())
-		.then(data => {
-  			console.log(data)
-		})
-		.catch(error => console.log(error))
+		.then(data => console.log(data))
+		.catch(error => console.log(error));
     });
 });
