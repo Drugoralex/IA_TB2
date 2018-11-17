@@ -11,7 +11,7 @@ def hello_world():
         juegos = body["lista_juegos"]
         dinero = body["dinero"]
         procesador = body["procesador"]
-        tarjet_video = body["tarjeta_video"]
+        tarjeta_video = body["tarjeta_video"]
         ram = body["ram"]
         data = {
             'respuesta' : LP(juegos,dinero)
