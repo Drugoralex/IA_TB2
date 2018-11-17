@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Response, json
 from Logica_Proposicional import LogicaProposicional as LP
 
 app = Flask(__name__)
@@ -17,7 +17,16 @@ def hello_world(name):
         año = body["año"]
         return jsonify(name=f'Hellow {name}!', data=edad+año, response=True)
     if request.method == 'GET':
-    	return jsonify(respuesta= LP(Juegos,Dinero))
+       # res = Response(jsonify(respuesta= LP(Juegos,Dinero)), mimetype='application/json')
+       data = {
+           'respuesta' : LP(Juegos,Dinero)
+       }
+       js = json.dumps(data)
+       res = Response(js, status=200, mimetype='application/json')
+       res.headers['Access-Control-Allow-Origin'] = '*'
+       res.headers['Access-Control-Allow-Methods'] = "GET"
+       res.headers['Access-Control-Allow-Headers'] = "X-Custom-Header"
+       return res
 
 #metodo que se encarga de responder cuando la solicitud reqerida no es reconocida por el API
 #Summary(la URL que se le solicita al API no esta definida)

@@ -14,6 +14,17 @@ $(document).ready(()=>{
     	var auxTarjeta = Tarjeta.options[Tarjeta.selectedIndex].value;
     	var auxRam = Ram.options[Ram.selectedIndex].value;
     	
-    	fetch("http://localhost:5000/bayesian/pepe",{headers: {Accept: "application/json",Content-Type:"application/json"}}).then(data => console.log(data.json())).catch(error => console.log(error))
+		fetch('http://localhost:5000/bayesian/re', { 
+			headers: {
+				"Origin": "http://localhost:5000",
+				"Access-Control-Request-Method": "GET",
+				"Access-Control-Request-Headers": "X-Custom-Header"
+			}
+		})
+		.then(response => response.json())
+		.then(data => {
+  			console.log(data)
+		})
+		.catch(error => console.log(error))
     });
 });
