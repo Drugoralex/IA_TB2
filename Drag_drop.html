@@ -19,7 +19,7 @@
 				  <li class="list-group-item" draggable="true" ondragstart="drag(event)" id="Juego3" width="88" height="31">Ark Extinction</li>
 				  <li class="list-group-item" draggable="true" ondragstart="drag(event)" id="Juego4" width="88" height="31">Niar automata</li>
 				  <li class="list-group-item" draggable="true" ondragstart="drag(event)" id="Juego5" width="88" height="31">Resident Evil 7</li>
-	<!--			 <li class="list-group-item" draggable="true" ondragstart="drag(event)" id="Juego6" width="88" height="31">Thronebreaker: The Witcher FETCH-->
+	
 				</ul>
 			</div>
 			<div id="div2" class="base-container" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -29,8 +29,43 @@
 				<br>
 			</div>
 			</div>
+		<div class= "form-group">
+			<label for="sel1">¿De cúanto dinero dispone?</label>
+			  <select size="1" class="form-control" id="Dinero">
+			    <option value="Poco">Poco</option>
+			    <option value="Normal">Normal</option>
+			    <option value="Mucho">Mucho</option>
+			  </select>
+		</div>
+
+		<div class= "form-group">
+			<label for="sel1">¿Qúe tan potente quieres que sea tu procesador?</label>
+			  <select size="1" class="form-control" id="Procesador">
+			    <option value="Poco">Poco</option>
+			    <option value="Normal">Normal</option>
+			    <option value="Mucho">Mucho</option>
+			  </select>
+		</div>
+
+		<div class= "form-group">
+			<label for="sel1">¿Qúe tan potente quieres que sea tu Tarjeta de video?</label>
+			  <select size="1" class="form-control" id="Tarjeta">
+			    <option value="Poco">Poco</option>
+			    <option value="Normal">Normal</option>
+			    <option value="Mucho">Mucho</option>
+			  </select>
+		</div>
+
+		<div class= "form-group">
+			<label for="sel1">¿Cúanto de Ram deseas?</label>
+			  <select size="1" class="form-control" id="Ram">
+			    <option value="Poco">Poco</option>
+			    <option value="Normal">Normal</option>
+			    <option value="Mucho">Mucho</option>
+			  </select>
+		</div>
 		<div class="right-text">
-			<button id="Enviar" type="button" class="btn">Info</button>
+			<button id="Enviar" type="button" class="btn btn-consultar">Consultar</button>
 		</div>
 		<br>
 		<div class="right-left">
