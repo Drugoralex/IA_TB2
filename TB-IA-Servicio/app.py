@@ -10,6 +10,9 @@ def hello_world():
         print(body)
         juegos = body["lista_juegos"]
         dinero = body["dinero"]
+        procesador = body["procesador"]
+        tarjet_video = body["tarjeta_video"]
+        ram = body["ram"]
         data = {
             'respuesta' : LP(juegos,dinero)
         }

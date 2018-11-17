@@ -13,7 +13,10 @@ $(document).ready(()=>{
 		
 		let data = {
 			lista_juegos: lis.map((ele, i) => ele.value),
-			dinero: auxDinero
+			dinero: auxDinero,
+			procesador: auxProcesador,
+			tarjeta_video: auxTarjeta,
+			ram: auxRam
 		};
 
 		console.log(data);
