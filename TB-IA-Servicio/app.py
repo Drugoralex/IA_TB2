@@ -3,7 +3,7 @@ from Logica_Proposicional import LogicaProposicional as LP
 
 app = Flask(__name__)
 
-@app.route('/logica', methods=['POST'])
+@app.route('/logic', methods=['POST'])
 def hello_world():
     if request.method == 'POST':
         body = request.get_json(force=True)

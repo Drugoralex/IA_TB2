@@ -18,7 +18,7 @@ $(document).ready(()=>{
 
 		console.log(data);
 
-		let res = await fetch('http://localhost:5000/logica', {
+		let res = await fetch('http://localhost:5000/logic', {
 			method: 'POST',
 			body: JSON.stringify(data),
 			headers: {
@@ -28,6 +28,17 @@ $(document).ready(()=>{
 			}
 		});
 
-		console.log(await res.json());
+		//console.log(await res.json());
+		document.getElementById("respuestas").innerHTML = await printResponses(await res.json())
     });
 });
+
+async function printResponses(obj) {
+	let array = obj.respuesta;
+	let component = "<ul class='list-group'>";
+	array.forEach((element, index) => {
+		component += `<li class="list-group-item">Opcion ${index}: ${element}</li>`;
+	});
+	component += "</ul>";
+	return component;
+}
