@@ -57,26 +57,30 @@ proc_level_md = fuzz.interp_membership(x_proc, proc_md, 3.1)
 proc_level_hi = fuzz.interp_membership(x_proc, proc_hi, 3.1)
 
 
-# El operador "o" significa que tomamos el maximo de ambos.
-active_rule1 = np.fmax(qual_level_lo, serv_level_lo)
-# Ahora aplicamos esto cortando el minimo de la respectiva
-# funcion de membresia con np.fmin
-tip_activation_lo = np.fmin(active_rule1, tip_lo) # removed entirely to 0
+
+active_rule1 = np.fmax(ram_level_lo, vid_level_lo)
+
+proc_activation_lo = np.fmin(active_rule1, proc_level_lo) 
+
+active_rule2 = np.fmax(ram_level_md, vid_level_md)
+
+proc_activation_md = np.fmin(active_rule2, proc_level_md)
 
 
-# Para la regla 2, conectamos servicio aceptable con propina media
-tip_activation_md = np.fmin(serv_level_md, tip_md)
+active_rule3 = np.fmax(ram_level_hi, vid_level_hi)
+proc_activation_hi = np.fmin(active_rule3, proc_level_lo_hi)
 
+aggregated = np.fmax(proc_activation_lo, np.fmax(proc_activation_md, proc_activation_hi))
 
-# Para la regla 3, conectamos servicio alto o comida deliciosa con propina alta
-active_rule3 = np.fmax(qual_level_hi, serv_level_hi)
-tip_activation_hi = np.fmin(active_rule3, tip_hi)
+ram = fuzz.defuzz(x_ram, aggregated, 'centroid')
+proc = fuzz.defuzz(x_proc, aggregated, 'centroid')
+vid = fuzz.defuzz(x_vid, aggregated, 'centroid')
 
+ram_activation = fuzz.interp_membership(x_ram, aggregated, ram)
+proc_activation = fuzz.interp_membership(x_proc, aggregated, proc)
+vid_activation = fuzz.interp_membership(x_vid, aggregated, vid)
 
-
-
-
-
+plt.show()
 
 
 
