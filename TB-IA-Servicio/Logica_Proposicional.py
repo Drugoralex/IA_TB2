@@ -41,45 +41,47 @@ def ObtenerElMayor(x):
 
 
 class ConjuntoPCs(KnowledgeEngine):
-	ListaPC = []
+	ListaPC=[]
 	def ReturnLista(self):
 		return self.ListaPC
 	@Rule(AND(OR(Juego(VJuego='Juego1'),Juego(VJuego='Juego3')),Dinero(VDinero='Poco')))
 	def JPP_D(self):
-		self.ListaPC=['Alienware 15','Alienware 17']
+		self.ListaPC=['IdealPad 330','Legion Y520','Serie X570UB']
 
 
 	@Rule(AND(OR(Juego(VJuego='Juego1'),Juego(VJuego='Juego3')),Dinero(VDinero='Normal')))
 	def JPN_D(self):
-		self.ListaPC=['Alienware 15','Alienware 17']
+		self.ListaPC=['HP Omen 17','Dell G5','Asus FX504GD-DM328T']
         
 	@Rule(AND(OR(Juego(VJuego='Juego1'),Juego(VJuego='Juego3')),Dinero(VDinero='Mucho')))
 	def JPM_D(self):
-		self.ListaPC=['Alienware 15','Alienware 17']
+		self.ListaPC=['MSI GT5 TITAN8RG','ROG Zephyrus M (GM501)','Alienware 15']
         
 	@Rule(AND(Juego(VJuego='Juego5'),Dinero(VDinero='Poco')))
 	def JNP_D(self):
-		self.ListaPC=['Alienware 15','Alienware 17']
+		self.ListaPC=['IdealPad 330','K555LB-XX131H', 'X540UV']
         
 	@Rule(AND(Juego(VJuego='Juego5'),Dinero(VDinero='Normal')))
 	def JNN_D(self):
-		self.ListaPC=['Daniel Aragon','Alienware 17']
+		self.ListaPC=['Dell G5','Legion Y520','Serie X570UB']
         
 	@Rule(AND(Juego(VJuego='Juego5'),Dinero(VDinero='Mucho')))
 	def JNM_D(self):
-		self.ListaPC=['Alienware 15','Alienware 17']
+		self.ListaPC=['Alienware 15','Asus FX504GD-DM328T','HP Omen 17']
 
 	@Rule(AND(OR(Juego(VJuego='Juego2'),Juego(VJuego='Juego4')),Dinero(VDinero='Poco')))
 	def JLP_D(self):
-		self.ListaPC=['Alienware 15','Alienware 17']
+		self.ListaPC=['Hp AM15','Dell PG', 'X440UV']
         
 	@Rule(AND(OR(Juego(VJuego='Juego2'),Juego(VJuego='Juego4')),Dinero(VDinero='Normal')))
 	def JLN_D(self):
-		self.ListaPC=['Alienware @de','Alienware 17']
+		self.ListaPC=['K555LB-XX131H','X540UV',' Asus DGR120']
         
 	@Rule(AND(OR(Juego(VJuego='Juego2'),Juego(VJuego='Juego4')),Dinero(VDinero='Mucho')))
 	def JLM_D(self):
-		self.ListaPC = ['Alienware 15','Alienware 17']
+		self.ListaPC = ['Dell G5','Serie X570UB', 'IdealPad 330']
+    
+
     
 
 
